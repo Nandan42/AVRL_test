@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #black-canvas{
+            margin-top: 10vw;
+            margin-left: 20vw;
+            background-color: black;
+            width: 60vw;
+            height: 20vw;
+            display: flex;
+            flex-direction: row;
+            align-items: flex-end;
+            justify-content: center;
+        }
+        .bar{
+            background-color: purple;
+            width: 11.5vw;
+            max-height: 18vw;
+            margin-bottom: 1vw;
+        }
+        .buttons{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            margin-top: 5vw;
+        }
+        .button {
+            background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            padding: 10px 40px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+        .button-red {background-color: #f44336;} 
+    </style>
+</head>
+<body>
+    <div id="black-canvas">
+        <div class="bar" id="bar1" style="background-color:blueviolet; height: 18vw;"></div>
+        <div class="bar" id="bar2" style="background-color: hotpink; height: 18vw;"></div>
+        <div class="bar" id="bar3" style="background-color: salmon; height: 18vw;"></div>
+        <div class="bar" id="bar4" style="background-color: darksalmon; height: 18vw;"></div>
+        <div class="bar" id="bar5" style="background-color: gold; height: 18vw;"></div>
+    </div>
+    <div class="buttons">
+        <button class="button" id="start-button" onclick="myMove()">Start</button>
+        <button class="button button-red" id="stop-button" onclick="myStop()">Stop</button> 
+    </div>
+</body>
+<script>
+        let start = false
+
+        let bar1 = document.getElementById('bar1')
+        let bar2 = document.getElementById('bar2')
+        let bar3 = document.getElementById('bar3')
+        let bar4 = document.getElementById('bar4')
+        let bar5 = document.getElementById('bar5')
+
+    function myMove(){
+
+        start = true
+        id =  setInterval(randHeight, 1000);
+
+        function randHeight(){
+            
+        let newHeight1 = Math.floor(Math.random() * 18)
+        let newHeight2 = Math.floor(Math.random() * 18)
+        let newHeight3 = Math.floor(Math.random() * 18)
+        let newHeight4 = Math.floor(Math.random() * 18)
+        let newHeight5 = Math.floor(Math.random() * 18)
+
+        bar1.style.maxHeight = newHeight1 + 'vw';
+        bar2.style.maxHeight = newHeight2 + 'vw';
+        bar3.style.maxHeight = newHeight3 + 'vw';
+        bar4.style.maxHeight = newHeight4 + 'vw';
+        bar5.style.maxHeight = newHeight5 + 'vw';
+    }
+    }
+    function myStop(){
+        start = false
+        clearInterval(id);
+        bar1.style.maxHeight = '18vw';
+        bar2.style.maxHeight = '18vw';
+        bar3.style.maxHeight = '18vw';
+        bar4.style.maxHeight = '18vw';
+        bar5.style.maxHeight = '18vw';
+    }
+</script>
+</html>
